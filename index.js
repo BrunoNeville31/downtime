@@ -9,7 +9,10 @@ try {
   daemons_split.forEach(daemon => {
     if(daemon.match("matching") || daemon.match("slavebook")){
       const slavebook = daemon.replace("matching", "slavebook")
-      first.push(slavebook)
+      
+      if(!first.includes(slavebook)){
+        first.push(slavebook)
+      }      
       
       if(daemon.match("matching")){
         second.push(daemon)
