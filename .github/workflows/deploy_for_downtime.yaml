@@ -32,12 +32,13 @@ jobs:
         with:
           selected_daemons: ${{ inputs.selected_daemons }}
         id: slavebook
-
       - name: first daemons
         run: echo "PRIMEIROS DAEMONS ${{ steps.slavebook.outputs.daemons_first}}"
 
   second_daemon:
     runs-on: ubuntu-latest
+    needs:
+      - first_daemon
     name: Buscando Restante Daemons
     steps:
       - name: Checkout
