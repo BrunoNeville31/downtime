@@ -25,6 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Buscando dados
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Slavebook validation
         uses: ./
         with:
