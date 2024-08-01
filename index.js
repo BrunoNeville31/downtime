@@ -8,8 +8,12 @@ try {
   const second = []
   daemons_split.forEach(daemon => {
     if(daemon.match("matching") || daemon.match("slavebook")){
-      let slavebook = daemon.replace("matching", "slavebook")
+      const slavebook = daemon.replace("matching", "slavebook")
       first.push(slavebook)
+      
+      if(daemon.match("matching")){
+        second.push(daemon)
+      }      
     }else{
       second.push(daemon)
     }    
@@ -22,3 +26,5 @@ try {
 } catch (error) {
   core.setFailed(error.message);
 }
+
+// matching-general-one slavebook-general-one trade-executor-general-one
