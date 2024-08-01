@@ -1,0 +1,16 @@
+
+name: 'Dynamic update YAML'
+description: 'Update YAML content based on the github input'
+author: 'bruno.santos@foxbit.com.br'
+inputs:
+  selected_daemons: # change this
+    required: true
+    description: 'Selected Daemon'
+outputs:
+  daemons_first:
+    description: "Primeiros Daemons a ser buildado"
+  daemons_second:
+    description: "Segundo Daemons a ser buildado"
+runs:
+  using: 'node20'
+  main: 'index.js'
