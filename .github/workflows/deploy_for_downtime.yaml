@@ -1,0 +1,38 @@
+name: Deploy For Downtime
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]  
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      can_i_deploy:
+        description: 'Can I Deploy?'
+        required: true
+        type: choice
+        options:
+          - 'no'
+          - 'yes'
+      selected_daemons:
+        description: 'Daemons detail'
+        required: true
+        type: string
+jobs:
+  deploy_daemon:
+    runs-on: ubuntu-latest
+    name: Buscando dados
+    steps:
+      - name: Slavebook validation
+        uses: BrunoNeville31/downtime@main
+        with:
+          selected_daemons: ${{ inputs.selected_daemons }}
+        id: slavebook
+
+      - name: first daemons
+        run: echo "PRIMEIROS DAEMONS ${{ steps.slavebook.outputs.daemons_first}}"
+      
+      - name: second daemons
+        run: echo "SEGUNDO DAEMONS ${{ steps.slavebook.outputs.daemons_second}}"
