@@ -1,4 +1,4 @@
-import core from '@actions/core';
+const core = require('@actions/core');
 
 const validate_daemon = (daemon) => {
   if(daemon.length == 0){
