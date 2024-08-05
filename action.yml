@@ -1,16 +1,15 @@
+name: 'Selected Daemons'
+description: 'Validate steps daemons'
 
-name: 'Dynamic update YAML'
-description: 'Update YAML content based on the github input'
-author: 'bruno.santos@foxbit.com.br'
 inputs:
-  selected_daemons: # change this
+  selected_daemons:
     required: true
-    description: 'Selected Daemon'
+  step:
+    required: true
 outputs:
-  daemons_first:
-    description: "Primeiros Daemons a ser buildado"
-  daemons_second:
-    description: "Segundo Daemons a ser buildado"
+  daemons:
+    description: "Build Daemons"
+  
 runs:
   using: 'node20'
   main: 'index.js'
