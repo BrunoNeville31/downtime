@@ -31,9 +31,10 @@ jobs:
         uses: ./
         with:
           selected_daemons: ${{ inputs.selected_daemons }}
-        id: slavebook
+          step: "one"
+        id: selected_daemons
       - name: first daemons
-        run: echo "PRIMEIROS DAEMONS ${{ steps.slavebook.outputs.daemons_first}}"
+        run: echo "PRIMEIROS DAEMONS ${{ steps.selected_daemons.outputs.daemons}}"
 
   second_daemon:
     runs-on: ubuntu-latest
@@ -47,7 +48,8 @@ jobs:
         uses: ./
         with:
           selected_daemons: ${{ inputs.selected_daemons }}
-        id: slavebook
+          step: "two"
+        id: selected_daemons
       
       - name: second daemons
-        run: echo "SEGUNDO DAEMONS ${{ steps.slavebook.outputs.daemons_second}}"
+        run: echo "SEGUNDO DAEMONS ${{ steps.selected_daemons.outputs.daemons }}"
