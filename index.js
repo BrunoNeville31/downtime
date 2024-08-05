@@ -12,7 +12,7 @@ const validate_build_daemons =  (build_daemons) => {
   }
 }
 
-export const run = () => {
+const run = () => {
   try {
     const selected_daemons = core.getInput('selected_daemons').split(" ");
     const step             = core.getInput('step');
