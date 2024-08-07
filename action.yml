@@ -1,5 +1,5 @@
-name: 'Selected Daemons'
-description: 'Validate steps daemons'
+name: "Selected Daemons"
+description: "Validate steps daemons"
 
 inputs:
   selected_daemons:
@@ -9,7 +9,7 @@ inputs:
 outputs:
   daemons:
     description: "Build Daemons"
-  
+
 runs:
-  using: 'node20'
-  main: 'index.js'
+  using: "node20"
+  main: "dist/index.js"

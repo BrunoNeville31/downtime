@@ -4,20 +4,20 @@ name: Deploy For Downtime
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]  
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
       can_i_deploy:
-        description: 'Can I Deploy?'
+        description: "Can I Deploy?"
         required: true
         type: choice
         options:
-          - 'no'
-          - 'yes'
+          - "no"
+          - "yes"
       selected_daemons:
-        description: 'Daemons detail'
+        description: "Daemons detail"
         required: true
         type: string
 jobs:
@@ -50,6 +50,6 @@ jobs:
           selected_daemons: ${{ inputs.selected_daemons }}
           step: "two"
         id: selected_daemons
-      
+
       - name: second daemons
         run: echo "SEGUNDO DAEMONS ${{ steps.selected_daemons.outputs.daemons }}"
