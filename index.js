@@ -14,6 +14,7 @@ const validate_build_daemons =  (build_daemons) => {
 
 const run = () => {
   try {
+    core.notice(`RECEIVE: ${core.getInput('selected_daemons')}`)
     const selected_daemons = core.getInput('selected_daemons').split(" ");
     const step             = core.getInput('step');
     const build_daemons    = []
@@ -51,8 +52,8 @@ const run = () => {
 
       validate_build_daemons(build_daemons)
     }
-
-    core.setOutput("daemons", build_daemons);    
+    core.notice(`SEND: ${build_daemons.join(" ")}`)
+    core.setOutput("daemons", build_daemons.join(" "));    
   } catch (error) {
     core.setFailed(error.message);
   }
