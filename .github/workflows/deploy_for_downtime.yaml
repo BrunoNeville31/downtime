@@ -28,7 +28,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Slavebook validation
-        uses: ruby
+        uses: ./
         with:
           selected_daemons: ${{ inputs.selected_daemons }}
           step: "one"
@@ -45,7 +45,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Slavebook validation
-        uses: ruby
+        uses: ./
         with:
           selected_daemons: ${{ inputs.selected_daemons }}
           step: "two"
