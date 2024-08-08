@@ -1,7 +1,8 @@
 
 
 puts "AQUIIIII"
-puts ENV["selected_daemons"]
+puts ARGV[0..1]
 
 
 ENV["GITHUB_OUTPUT"] = "daemon=teste"
+puts "::set-output name=num_squared::bruno"

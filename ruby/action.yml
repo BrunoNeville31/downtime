@@ -18,5 +18,5 @@ runs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.3' 
-    - run: ruby ruby/main.rb
+    - run: ruby ruby/main.rb ${{ inputs.selected_daemons }} ${{ inputs.step }}
       shell: bash
