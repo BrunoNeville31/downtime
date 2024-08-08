@@ -3,4 +3,5 @@
 puts "AQUIIIII"
 puts ENV["selected_daemons"]
 
-puts "::set-output name=daemon::teste"
+
+ENV["GITHUB_OUTPUT"] = "daemon=teste"
